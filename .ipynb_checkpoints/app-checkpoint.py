@@ -27,7 +27,7 @@ def predict(bedrooms,bathrooms,status,size,location,facing,Types):
     selected_type=Type[Types]
     user_input=np.array([[bedrooms,bathrooms,selected_status,size,selected_location,selected_facing,selected_type]])
     result=model.predict(user_input)[0].round(2)
-    return res
+    return result
 if __name__=="__main__":
     st.header("House Price Prediction")
     col1,col2 = st.columns([2,1])
@@ -42,8 +42,7 @@ if __name__=="__main__":
     submit_button=st.button("Predict")
     if submit_button:
         larger_text=f"<h2 style='color:blue;'>The Predicted Price is : {result} Lakhs</h2>"
-        st.markdown(larger_text,unsafe_allow_html=True)     
-        st.write(res)                      
+        st.markdown(larger_text,unsafe_allow_html=True)                           
 
 
 
